@@ -1,22 +1,44 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
-body{margin: 0;
+/* Estilo Global */
+body {
+    margin: 0;
     font-family: "Oswald", sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo para a página */
 }
 
-header{
+/* Cabeçalho */
+header {
     background-color: #ec7b1f;
-    color:#1d0505;
+    color: #1d0505;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding: 20px;
+    position: relative;
+}
+
+header .header-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 header h1 {
+    margin: 10px 0;
+}
+
+/* Estilo para o input e o botão */
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    text-align: center;
+    margin-top: 10px;
 }
 
 header input {
@@ -25,41 +47,70 @@ header input {
     padding: 10px;
     width: 60%;
     font-size: 18px;
-}
-
-header span {
-    padding-left: 10px;
-    font-size: 35px;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
+header button {
+    background-color: #683a06;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+header button i {
+    color: #34cc0d;
+    font-size: 24px;
+}
+
+/* Logo */
+header .logo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #f0860e;
+}
+
+/* Lista de Tarefas */
 ul {
-    margin: 0;
+    margin: 20px;
     padding: 0;
+    list-style: none;
 }
 
 ul li {
     cursor: pointer;
-    padding: 10px 0;
-    list-style-type: none;
+    padding: 10px;
     font-size: 18px;
     display: flex;
     align-items: center;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ul li:nth-child(odd) {background-color: beige;}
-ul li:hover{background-color: rgb(224, 160, 22);}
-ul li span{width: 80%;}
-ul li i{width: 10%; text-align: center;}
-.close{color: #f03333;}
+ul li span {
+    flex: 1;
+    padding-left: 10px;
+}
 
+/* Responsividade */
+@media (max-width: 768px) {
+    header input {
+        width: 80%;
+    }
 
-header .logo {
-    position: absolute;
-    top: 40px; /* Ajuste a distância do topo conforme necessário */
-    left: 25px; /* Ajuste a distância da direita conforme necessário */
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 50%; /* Torna a imagem completamente circular */
-    border: 2px solid #f0860e; /* Opcional: Adiciona uma borda */
+    header button {
+        padding: 8px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
 }

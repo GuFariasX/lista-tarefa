@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilo.css">
+    <title>Lista de Tarefas</title>
 </head>
 <body>
     <header>
-    <img src="img/images.jpg" alt="Logo" class="logo">
-    <h1>Lista de Tarefas</h1><input type="text" id="tarefa" placeholder="Digite a sua tarefa"><span><i class="fas fa-plus-circle" id="btn"></i></span>
+        <img src="img/images.jpg" alt="Logo da aplicação" class="logo">
+        <div class="header-content">
+            <h1>Lista de Tarefas</h1>
+            <div class="input-container">
+                <input type="text" id="tarefa" placeholder="Digite a sua tarefa">
+                <button id="btn" aria-label="Adicionar tarefa">
+                    <i class="fas fa-plus-circle"></i>
+                </button>
+            </div>
+        </div>
     </header>
-    <ul id="lista"></ul>
+    <main>
+        <ul id="lista" aria-label="Lista de Tarefas"></ul>
+    </main>
     <script src="script2.js"></script>
 </body>
 </html>
