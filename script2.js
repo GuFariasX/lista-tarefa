@@ -1,53 +1,61 @@
+// Seleção dos elementos
 const tarefa = document.querySelector("#tarefa");
 const btn = document.querySelector("#btn");
 const lista = document.querySelector("#lista");
 
+// Função para criar o item da lista
+function criarItem(tarefaTexto) {
+    // Criar o item de lista
+    const li = document.createElement("li");
+
+    // Criar o ícone de check
+    const checkIcon = document.createElement("i");
+    checkIcon.className = "fas fa-check-circle check";
+    
+    // Adicionar evento para alternar o estado de conclusão
+    checkIcon.addEventListener("click", () => {
+        li.classList.toggle("concluida");
+    });
+
+    // Criar o texto da tarefa
+    const span = document.createElement("span");
+    span.textContent = tarefaTexto;
+
+    // Criar o ícone de exclusão
+    const trashIcon = document.createElement("i");
+    trashIcon.className = "fa-solid fa-trash-can close";  // Classe para o botão de exclusão ficar vermelho
+
+    // Adicionar evento para excluir a tarefa
+    trashIcon.addEventListener("click", () => {
+        li.remove();
+    });
+
+    // Montar o item
+    li.appendChild(checkIcon);
+    li.appendChild(span);
+    li.appendChild(trashIcon);
+
+    // Adicionar à lista
+    lista.appendChild(li);
+}
+
 // Adicionar funcionalidade ao botão de incluir
 btn.addEventListener("click", function () {
-    if (tarefa.value.trim() === "") {
+    const tarefaTexto = tarefa.value.trim();
+
+    // Verificar se o campo de entrada não está vazio
+    if (tarefaTexto === "") {
         alert("Digite uma tarefa válida!");
     } else {
-        // Criar um novo item da lista
-        const li = document.createElement("li");
+        criarItem(tarefaTexto);
+        tarefa.value = ""; // Limpar o campo de texto
+    }
+});
 
-        // Ícone de check
-        const checkIcon = document.createElement("i");
-        checkIcon.className = "fas fa-check-circle check";
-
-        // Evento para alternar estado de concluído
-        checkIcon.addEventListener("click", function () {
-            const span = li.querySelector("span");
-            if (span.style.textDecoration === "line-through") {
-                span.style.textDecoration = "none";
-                checkIcon.style.color = "#000"; // Cor padrão
-            } else {
-                span.style.textDecoration = "line-through";
-                checkIcon.style.color = "#349223"; // Cor verde
-            }
-        });
-
-        // Texto da tarefa
-        const span = document.createElement("span");
-        span.textContent = tarefa.value;
-
-        // Ícone de exclusão
-        const trashIcon = document.createElement("i");
-        trashIcon.className = "fa-solid fa-trash-can close";
-
-        // Evento para remover o item ao clicar no ícone de exclusão
-        trashIcon.addEventListener("click", function () {
-            li.remove();
-        });
-
-        // Montar o item
-        li.appendChild(checkIcon);
-        li.appendChild(span);
-        li.appendChild(trashIcon);
-
-        // Adicionar o item à lista
-        lista.appendChild(li);
-
-        // Limpar o campo de texto
+// Adicionar uma funcionalidade de pressionar "Enter" para incluir a tarefa
+tarefa.addEventListener("keypress", function (e) {
+    if (e.key === "Enter" && tarefa.value.trim() !== "") {
+        criarItem(tarefa.value.trim());
         tarefa.value = "";
     }
 });
