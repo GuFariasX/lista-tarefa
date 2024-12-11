@@ -52,3 +52,14 @@ ul li:hover{background-color: rgb(224, 160, 22);}
 ul li span{width: 80%;}
 ul li i{width: 10%; text-align: center;}
 .close{color: #f03333;}
+
+
+header .logo {
+    position: absolute;
+    top: 40px; /* Ajuste a distância do topo conforme necessário */
+    left: 25px; /* Ajuste a distância da direita conforme necessário */
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Torna a imagem completamente circular */
+    border: 2px solid #f0860e; /* Opcional: Adiciona uma borda */
+}
